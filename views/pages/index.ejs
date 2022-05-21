@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+    <div class="section">
+        <div class="container is-flex is-justify-content-flex-start is-flex-wrap-wrap">
+            <% items.forEach(item=> { %>
+                <div class="card ml-6 mb-6">
+                    <div class="card-image ">
+                        <figure class="image is-128x128 mx-auto">
+                            <img src="<%- item.img %> ">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <p class="is-size-3">
+                            <%= item.name %>
+                        </p>
+                        <p>$<%= item.cost %>
+                        </p>
+                    </div>
+                </div>
+                <% console.log(item) %>
+                    <% }) %>
+
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
