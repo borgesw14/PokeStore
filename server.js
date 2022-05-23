@@ -4,13 +4,14 @@ const axios = require('axios');
 const path = require('path');
 
 const port = process.env.PORT || 3000;
+const API_URI = process.env.API_URI;
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   let items = [];
-  axios.get('https://pokeapi.co/api/v2/item/').then((response) => {
+  axios.get(`${API_URI}api/v2/item/`).then((response) => {
     let endpoints = [];
     response.data.results.forEach((element) => {
       endpoints.push(element.url);
