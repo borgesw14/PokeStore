@@ -22,7 +22,24 @@ app.get('/', (req, res) => {
           name: element.data.name,
           cost: element.data.cost,
           img: element.data.sprites.default,
+          description: element.data.flavor_text_entries[0].text,
         };
+
+        for (const desc of element.data.flavor_text_entries) {
+          if (desc.language.name == 'en') {
+            item.description = desc.text;
+            break;
+          }
+        }
+
+        let styledName = item.name.split('-');
+        item.name = styledName.map((word) => { 
+          return word[0].toUpperCase() + word.substring(1); 
+        }).join(" ");
+
+        console.log(styledName);
+
+
         items.push(item);
         console.log(item);
       });
