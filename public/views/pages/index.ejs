@@ -16,21 +16,10 @@
                                     <p class="is-size-3">
                                         <%= item.name %>
                                     </p>
-                                    <p><%= item.description %> </p>
-                                    <div class="form">
-                                        <div class="field is-horizontal">
-                                            <div class="field-label">
-                                                <label for="buyButton" class="label">$<%= item.cost %></label>
-                                            </div>
-                                            <div class="field-body">
-                                                <p class="control">
-                                                    <input type="number" class="input">
-                                                    <button class="button">Buy</button>
-                                                </p>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
+                                    <p>
+                                        <%= item.description %>
+                                    </p>
+                                    <span class="has-text-weight-semibold">$<%= item.cost %></span>
                                 </div>
                             </div>
                         </div>

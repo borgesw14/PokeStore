@@ -7,7 +7,8 @@ const port = process.env.PORT || 3000;
 const API_URI = process.env.API_URI;
 const app = express();
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'public/views'));
+app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
   let items = [];
@@ -34,15 +35,16 @@ app.get('/', async (req, res) => {
         }
 
         let styledName = item.name.split('-');
-        item.name = styledName.map((word) => { 
-          return word[0].toUpperCase() + word.substring(1); 
-        }).join(" ");
+        item.name = styledName
+          .map((word) => {
+            return word[0].toUpperCase() + word.substring(1);
+          })
+          .join(' ');
 
-        console.log(styledName);
-
+        //console.log(styledName);
 
         items.push(item);
-        console.log(item);
+        //console.log(item);
       });
       res.render('pages/index', { items });
     });
