@@ -6,10 +6,11 @@
                 <div class="columns is-multiline is-variable is-1">
                     <% items.forEach(item=> { %>
                         <div class="column is-one-quarter">
-                            <div class="card ml-1 mb-6 pt-6">
-                                <div class="card-image ">
+                            <div class="card mb-6 pt-6 pb-1 px-1">
+                                <div class="card-image">
                                     <figure class="image is-128x128 mx-auto">
                                         <img src="<%- item.img %> ">
+                                        <a href="#" class="button is-info is-rounded addToCartButton">Add</a>
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -22,10 +23,12 @@
                                     <span class="has-text-weight-semibold">$<%= item.cost %></span>
                                 </div>
                             </div>
+
                         </div>
                         <% }) %>
                 </div>
             </div>
         </div>
     </div>
+    <script src="/public/js/pages/index.js"></script>
     <%- include('../partials/footer') %>
