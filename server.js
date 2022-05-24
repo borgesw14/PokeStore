@@ -46,10 +46,14 @@ app.get('/', async (req, res) => {
         items.push(item);
         //console.log(item);
       });
-      res.render('pages/index', { items });
+      res.render('pages/items', { items });
     });
   });
 });
+
+app.get('/pokemon', (req, res)=>{
+  res.render('pages/pokemon')
+})
 
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
